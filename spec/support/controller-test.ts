@@ -1,11 +1,11 @@
 import {TestComponentBuilder, inject, beforeEach, AnyTestFn} from "angular2/testing";
-import {ComponentRef} from "angular2/core";
+import {Type} from 'angular2/src/facade/lang';
 
-type ComponentTestIt = (ComponentRef, ElementRef, ComponentFixture) => void;
+export type ComponentTestIt = (ComponentRef, ElementRef, ComponentFixture) => void;
 export type ComponentTestFunction = (ComponentRef, ComponentTestIt) => AnyTestFn;
 type Suite = (ComponentTestFunction) => void;
 
-const componentTest:ComponentTestFunction = (componentClass: ComponentRef, callback: ComponentTestIt) => {
+export const componentTest:ComponentTestFunction = (componentClass: Type, testCallback: ComponentTestIt) => {
     let tcb;
     beforeEach(inject([TestComponentBuilder], (_tcb) => {
         tcb = _tcb
@@ -17,7 +17,7 @@ const componentTest:ComponentTestFunction = (componentClass: ComponentRef, callb
                 element = fixture.nativeElement;
 
             fixture.detectChanges();
-            callback(component, element, fixture);
+            testCallback(component, element, fixture);
             done();
         }).catch(e => done.fail(e));
     };
