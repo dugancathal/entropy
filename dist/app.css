@@ -1,0 +1,69 @@
+.clearfix {
+    clear: both;
+}
+
+.playarea__card {
+    float: left;
+}
+
+.playarea__card--fragment {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.playarea__card--revealed {
+    padding-left: 0px;
+    padding-right: 0px;
+    border: 1px solid white;
+}
+.playarea__card--action {
+    transform: translateX(90px) rotateZ(90deg);
+}
+
+.playarea__card--clashed {
+    transform: rotateZ(0deg) translateY(-39px);
+}
+
+.playarea__card--character {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.card__pic {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.card__body {
+    perspective: 1000;
+    width: 130px;
+    height: 200px;
+}
+.card__body:hover .card__flipper, .card__body.hover .card__flipper {
+    transform: rotateY(180deg);
+}
+
+.card__flipper {
+    transition: 1.5s;
+    transform-style: preserve-3d;
+
+    position: relative;
+}
+
+.card__front, .card__back {
+    backface-visibility: hidden;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.card__front {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+}
+
+.card__back {
+    transform: rotateY(180deg);
+}

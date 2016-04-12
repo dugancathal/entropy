@@ -1,0 +1,15 @@
+<div class="playarea">
+    <entropy-card class="playarea__card playarea__card--fragment" type="fragment" front="back"
+                  back="kintriel-1"></entropy-card>
+    <entropy-card class="playarea__card playarea__card--character" type="character" front="kintriel"
+                  back="back"></entropy-card>
+    <entropy-card class="playarea__card playarea__card--fragment playarea__card--revealed" type="fragment"
+                  front="kintriel-{{num}}" *ngFor="#num of [1,2,3,4]"></entropy-card>
+
+    <div class="clearfix"></div>
+    <div *ngFor="#char of ['jessup']">
+        <entropy-card class="playarea__card playarea__card--action" [class.playarea__card--clashed]="num % 2 == 0" *ngFor="#num of [1,2,3,4,5,6]" type="action"
+                      front="{{char}}-{{num}}"></entropy-card>
+        <div class="clearfix"></div>
+    </div>
+</div>
