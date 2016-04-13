@@ -1,5 +1,5 @@
 import {Component} from "angular2/core";
-import {PlayAreaComponent} from "./play-area.component";
+import {PlayAreaComponent} from "./table/play-area.component";
 
 @Component({
     selector: 'my-app',
